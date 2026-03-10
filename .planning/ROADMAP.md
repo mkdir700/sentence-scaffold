@@ -31,8 +31,8 @@ Decimal phases appear between their surrounding integers in numeric order.
 **Plans:** 2/2 plans complete
 
 Plans:
-- [ ] 01-01-PLAN.md — Install deps, create type definitions and Zod schemas, configure Vitest, write smoke tests
-- [ ] 01-02-PLAN.md — Enable strict mode, fix all errors, integrate Zod parse into ai.ts
+- [x] 01-01-PLAN.md — Install deps, create type definitions and Zod schemas, configure Vitest, write smoke tests
+- [x] 01-02-PLAN.md — Enable strict mode, fix all errors, integrate Zod parse into ai.ts
 
 ### Phase 2: Backend Separation
 **Goal**: Monolithic server.ts is replaced by route/controller/service layers with a new GET `/api/analysis/:id` endpoint
@@ -43,10 +43,11 @@ Plans:
   2. `GET /api/analysis/:id` returns a cached analysis by ID with correct typed response
   3. Sending a POST with a missing or too-short sentence body returns a 400 response with a descriptive error message
   4. Service functions can be called directly in a test (no HTTP server required) and return correct results
-**Plans**: TBD
+**Plans:** 2 plans
 
 Plans:
-- [ ] 02-01: Extract routes, controllers, and services; add GET analysis-by-id endpoint and Zod request validation
+- [ ] 02-01-PLAN.md — Create API contract types, service layer with unit tests
+- [ ] 02-02-PLAN.md — Create controllers with Zod validation, route files, and rewire server.ts
 
 ### Phase 3: Frontend Core Refactor
 **Goal**: All server state is managed by TanStack Query; Analysis.tsx is decomposed into 6 step components; the analysis page survives a browser refresh
@@ -87,6 +88,6 @@ Phases execute in numeric order: 1 → 2 → 3 → 4
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
 | 1. Foundation | 2/2 | Complete   | 2026-03-10 |
-| 2. Backend Separation | 0/1 | Not started | - |
+| 2. Backend Separation | 0/2 | Not started | - |
 | 3. Frontend Core Refactor | 0/2 | Not started | - |
 | 4. Polish and Test Coverage | 0/2 | Not started | - |
