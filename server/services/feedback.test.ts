@@ -1,13 +1,15 @@
 import { describe, it, expect, vi, beforeEach } from "vitest";
 
-const mockGenerateContent = vi.fn();
+const mockGenerateContent = vi.hoisted(() => vi.fn());
 
 vi.mock("@google/genai", () => ({
-  GoogleGenAI: vi.fn().mockImplementation(() => ({
-    models: {
-      generateContent: mockGenerateContent,
-    },
-  })),
+  GoogleGenAI: function () {
+    return {
+      models: {
+        generateContent: mockGenerateContent,
+      },
+    };
+  },
 }));
 
 import { getFeedback } from "./feedback.js";

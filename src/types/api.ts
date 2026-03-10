@@ -42,3 +42,14 @@ export interface HistoryEntry {
   text: string;
   created_at: string;
 }
+
+export interface FeedbackRequest {
+  userTranslation: string;
+  reference: string;
+  hint: string;
+  cn: string;
+}
+
+export interface FeedbackResponse {
+  commentary: string;
+}
