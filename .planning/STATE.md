@@ -3,14 +3,14 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: planning
-stopped_at: Completed 06-02-PLAN.md (feedback API endpoint)
-last_updated: "2026-03-10T08:22:13.901Z"
+stopped_at: Completed 06-03-PLAN.md (StepPractice frontend component)
+last_updated: "2026-03-10T08:23:15.786Z"
 last_activity: 2026-03-10 — Roadmap created
 progress:
   total_phases: 6
-  completed_phases: 4
+  completed_phases: 5
   total_plans: 10
-  completed_plans: 9
+  completed_plans: 10
   percent: 0
 ---
 
@@ -59,6 +59,7 @@ Progress: [░░░░░░░░░░] 0%
 | Phase 05-localize-ai-explanatory-content-to-user-language P01 | 2 | 2 tasks | 2 files |
 | Phase 06-replace-quiz-with-scenario-based-output-practice-learning-by-doing P01 | 525603 | 2 tasks | 6 files |
 | Phase 06-replace-quiz-with-scenario-based-output-practice-learning-by-doing P02 | 3 | 3 tasks | 7 files |
+| Phase 06-replace-quiz-with-scenario-based-output-practice-learning-by-doing P03 | 15 | 2 tasks | 5 files |
 
 ## Accumulated Context
 
@@ -94,6 +95,8 @@ Recent decisions affecting current work:
 - [Phase 06-replace-quiz-with-scenario-based-output-practice-learning-by-doing]: Cache clearing (DELETE FROM sentences) required as deployment step — existing rows store quiz JSON that fails Zod parse after this schema change
 - [Phase 06-replace-quiz-with-scenario-based-output-practice-learning-by-doing]: Free-form text prompt used for Gemini feedback (not responseSchema) — feedback is ephemeral 1-2 sentences needing no structured parse
 - [Phase 06-replace-quiz-with-scenario-based-output-practice-learning-by-doing]: vi.hoisted(() => vi.fn()) required for mock variables used inside vi.mock() factory — plain const causes ReferenceError due to hoisting
+- [Phase 06]: useFeedback is the one exception to step components being purely presentational — feedback is per-card interactive state, not page-level data fetching
+- [Phase 06]: Reference translation strictly hidden until submitted=true — locked product decision
 
 ### Roadmap Evolution
 
@@ -112,6 +115,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-03-10T08:22:13.898Z
-Stopped at: Completed 06-02-PLAN.md (feedback API endpoint)
+Last session: 2026-03-10T08:23:15.784Z
+Stopped at: Completed 06-03-PLAN.md (StepPractice frontend component)
 Resume file: None

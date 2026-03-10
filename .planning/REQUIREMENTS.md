@@ -57,7 +57,7 @@ Requirements for the refactor release. Each maps to roadmap phases.
 - [x] **PRAC-01**: Quiz schema replaced with practice schema (Zod + GenAI) containing scenario + translation tasks
 - [x] **PRAC-02**: AI generates 1 scenario per analysis with 2-3 Chinese-to-English translation tasks tied to analyzed chunks
 - [x] **PRAC-03**: POST /api/feedback endpoint returns AI commentary comparing user translation with reference
-- [ ] **PRAC-04**: StepPractice component with sequential submit-then-reveal flow (reference hidden until submission)
+- [x] **PRAC-04**: StepPractice component with sequential submit-then-reveal flow (reference hidden until submission)
 - [x] **PRAC-05**: SQLite analysis cache cleared to remove incompatible quiz-format data
 
 ## v2 Requirements
@@ -128,7 +128,7 @@ Which phases cover which requirements. Updated during roadmap creation.
 | PRAC-01 | Phase 6 | Complete |
 | PRAC-02 | Phase 6 | Complete |
 | PRAC-03 | Phase 6 | Complete |
-| PRAC-04 | Phase 6 | Pending |
+| PRAC-04 | Phase 6 | Complete |
 | PRAC-05 | Phase 6 | Complete |
 
 **Coverage:**
