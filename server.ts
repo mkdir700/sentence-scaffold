@@ -1,6 +1,7 @@
 import express from 'express';
 import { createServer as createViteServer } from 'vite';
 import { db } from './src/db/index.js';
+import { type SentenceRow } from './src/types/index.js';
 
 async function startServer() {
   const app = express();
@@ -16,14 +17,15 @@ async function startServer() {
         return res.status(400).json({ error: 'Sentence is required' });
       }
 
-      const existing = db.prepare('SELECT * FROM sentences WHERE text = ?').get(sentence) as any;
+      const existing = db.prepare('SELECT * FROM sentences WHERE text = ?').get(sentence) as SentenceRow | undefined;
       if (existing) {
-        return res.json(JSON.parse(existing.analysis_json));
+        res.json(JSON.parse(existing.analysis_json));
+        return;
       }
-      
+
       res.status(404).json({ error: 'Not found' });
-    } catch (error: any) {
-      res.status(500).json({ error: error.message });
+    } catch (error: unknown) {
+      res.status(500).json({ error: error instanceof Error ? error.message : String(error) });
     }
   });
 
@@ -40,8 +42,8 @@ async function startServer() {
       );
 
       res.json({ success: true });
-    } catch (error: any) {
-      res.status(500).json({ error: error.message });
+    } catch (error: unknown) {
+      res.status(500).json({ error: error instanceof Error ? error.message : String(error) });
     }
   });
 
@@ -53,20 +55,22 @@ async function startServer() {
   app.post('/api/save', (req, res) => {
     try {
       const { sentence } = req.body;
-      const existing = db.prepare('SELECT id FROM sentences WHERE text = ?').get(sentence) as any;
+      const existing = db.prepare('SELECT id FROM sentences WHERE text = ?').get(sentence) as { id: number } | undefined;
       if (!existing) {
-        return res.status(404).json({ error: 'Sentence not found in history' });
+        res.status(404).json({ error: 'Sentence not found in history' });
+        return;
       }
-      
+
       const alreadySaved = db.prepare('SELECT id FROM saved_sentences WHERE sentence_id = ?').get(existing.id);
       if (alreadySaved) {
-        return res.json({ success: true, message: 'Already saved' });
+        res.json({ success: true, message: 'Already saved' });
+        return;
       }
 
       db.prepare('INSERT INTO saved_sentences (sentence_id) VALUES (?)').run(existing.id);
       res.json({ success: true });
-    } catch (error: any) {
-      res.status(500).json({ error: error.message });
+    } catch (error: unknown) {
+      res.status(500).json({ error: error instanceof Error ? error.message : String(error) });
     }
   });
 
@@ -89,8 +93,8 @@ async function startServer() {
         JSON.stringify(examples)
       );
       res.json({ success: true });
-    } catch (error: any) {
-      res.status(500).json({ error: error.message });
+    } catch (error: unknown) {
+      res.status(500).json({ error: error instanceof Error ? error.message : String(error) });
     }
   });
 

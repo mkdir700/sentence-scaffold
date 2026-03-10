@@ -1,4 +1,5 @@
 import { GoogleGenAI, Type, Schema } from "@google/genai";
+import { AnalysisResultSchema, type AnalysisResult } from "../types/index.js";
 
 const ai = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY });
 
@@ -146,7 +147,7 @@ const analysisSchema: Schema = {
   ],
 };
 
-export async function analyzeSentence(sentence: string) {
+export async function analyzeSentence(sentence: string): Promise<AnalysisResult> {
   const response = await ai.models.generateContent({
     model: "gemini-3.1-pro-preview",
     contents: `Analyze the following English sentence according to the required structure. 
@@ -166,5 +167,5 @@ export async function analyzeSentence(sentence: string) {
     throw new Error("Failed to generate analysis");
   }
 
-  return JSON.parse(text);
+  return AnalysisResultSchema.parse(JSON.parse(text));
 }
