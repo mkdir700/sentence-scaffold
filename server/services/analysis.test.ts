@@ -10,8 +10,8 @@ import type { AnalysisResult } from "../../src/types/index.js";
 const MOCK_ANALYSIS: AnalysisResult = {
   sentence: "The quick brown fox jumps over the lazy dog.",
   sentence_type: {
-    category: "simple",
-    summary: "A simple declarative sentence.",
+    category: "简单句",
+    summary: "简单陈述句，主谓宾结构。",
   },
   main_clause: {
     subject: "The quick brown fox",
@@ -20,9 +20,9 @@ const MOCK_ANALYSIS: AnalysisResult = {
   },
   core_skeleton: "fox jumps",
   components: [
-    { text: "The quick brown fox", role: "subject" },
-    { text: "jumps", role: "verb" },
-    { text: "over the lazy dog", role: "adverbial" },
+    { text: "The quick brown fox", role: "主语" },
+    { text: "jumps", role: "谓语" },
+    { text: "over the lazy dog", role: "状语" },
   ],
   structure_tree: [
     {
@@ -35,24 +35,24 @@ const MOCK_ANALYSIS: AnalysisResult = {
     natural_cn: "敏捷的棕狐跃过懒狗。",
   },
   key_points: [
-    { point: "Uses present simple tense" },
-    { point: "Contains all 26 letters of the English alphabet" },
+    { point: "使用一般现在时" },
+    { point: "包含英语字母表全部26个字母" },
   ],
   chunks: [
     {
       expression: "jump over",
-      meaning: "to leap across something",
+      meaning: "跳过某物",
       examples: ["The cat jumped over the fence."],
     },
   ],
   review_summary: {
-    look_first: "The subject is 'the quick brown fox'",
-    easy_to_misread: "The verb phrase separation",
-    how_to_parse_next_time: "Find the main verb first",
+    look_first: "主语是 'the quick brown fox'",
+    easy_to_misread: "动词短语的分隔容易造成误读",
+    how_to_parse_next_time: "先找到主要动词",
   },
   quiz: [
     {
-      question: "What is the subject of this sentence?",
+      question: "这个句子的主语是什么？",
       reference_answer: "The quick brown fox",
     },
   ],
