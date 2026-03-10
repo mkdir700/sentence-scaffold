@@ -166,7 +166,7 @@ export default function Analysis() {
         />
       )}
 
-      {isVisible(6) && <StepQuiz quiz={data.quiz} />}
+      {isVisible(6) && <StepQuiz practice={data.practice} />}
 
       {!showAll && step < 6 && (
         <div className="flex justify-center mt-12">

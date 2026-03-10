@@ -160,22 +160,36 @@ const analysisSchema: Schema = {
       },
       required: ["look_first", "easy_to_misread", "how_to_parse_next_time"],
     },
-    quiz: {
-      type: Type.ARRAY,
-      items: {
-        type: Type.OBJECT,
-        properties: {
-          question: {
-            type: Type.STRING,
-            description: "关于句子结构的测试题，用中文写",
-          },
-          reference_answer: {
-            type: Type.STRING,
-            description: "参考答案，用中文写",
+    practice: {
+      type: Type.OBJECT,
+      properties: {
+        scenario: {
+          type: Type.STRING,
+          description: "用中文描述一个具体场景，让用户在该场景下练习翻译，场景应与被分析句子的内容和结构直接相关",
+        },
+        tasks: {
+          type: Type.ARRAY,
+          items: {
+            type: Type.OBJECT,
+            properties: {
+              cn: {
+                type: Type.STRING,
+                description: "需要用户翻译成英文的中文句子",
+              },
+              hint: {
+                type: Type.STRING,
+                description: "明确提示用户应使用的词块或结构，例如：请用 despite 或 in spite of",
+              },
+              reference: {
+                type: Type.STRING,
+                description: "标准参考译文，用英文写，仅在用户提交后展示 (keep in English)",
+              },
+            },
+            required: ["cn", "hint", "reference"],
           },
         },
-        required: ["question", "reference_answer"],
       },
+      required: ["scenario", "tasks"],
     },
   },
   required: [
@@ -189,7 +203,7 @@ const analysisSchema: Schema = {
     "key_points",
     "chunks",
     "review_summary",
-    "quiz",
+    "practice",
   ],
 };
 
@@ -211,7 +225,10 @@ LANGUAGE RULES — follow strictly:
 - Never mix languages within a single field value.
 
 ANALYSIS APPROACH:
-Identify the main skeleton first, then explain what each modifier attaches to in Chinese. Provide a literal Chinese translation that mirrors the English structure, then a natural Chinese translation.`,
+Identify the main skeleton first, then explain what each modifier attaches to in Chinese. Provide a literal Chinese translation that mirrors the English structure, then a natural Chinese translation.
+
+OUTPUT PRACTICE:
+Generate a concrete, scenario-based practice section. The scenario should be directly related to the analyzed sentence's content and structures. Each translation task must target a specific chunk or expression from the analysis. Always generate 2-3 translation tasks, even for simple sentences — vary the structure if chunks are limited.`,
     },
   });
 

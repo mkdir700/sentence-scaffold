@@ -49,12 +49,14 @@ export const AnalysisResultSchema = z.object({
     easy_to_misread: z.string(),
     how_to_parse_next_time: z.string(),
   }),
-  quiz: z.array(
-    z.object({
-      question: z.string(),
-      reference_answer: z.string(),
-    })
-  ),
+  practice: z.object({
+    scenario: z.string(),
+    tasks: z.array(z.object({
+      cn: z.string(),
+      hint: z.string(),
+      reference: z.string(),
+    })).min(2).max(3),
+  }),
 });
 
 // Single source of truth: TypeScript type derived from schema
