@@ -76,7 +76,7 @@ Each task was committed atomically:
 1. **Task 1: Create controllers with Zod validation and route files** - `2daa7fa` (feat)
 2. **Task 2: Rewire server.ts to use modular routers** - `df687c2` (feat)
 
-**Plan metadata:** (pending)
+**Plan metadata:** `05cdc8b` (docs: complete plan)
 
 ## Files Created/Modified
 - `server/controllers/analysis.ts` - handleCheckSentence, handleSaveSentence, handleGetAnalysisById with Zod validation

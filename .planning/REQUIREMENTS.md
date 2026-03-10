@@ -17,11 +17,11 @@ Requirements for the refactor release. Each maps to roadmap phases.
 
 ### Frontend Architecture
 
-- [ ] **FEND-01**: Analysis.tsx decomposed into 6 step components (skeleton, modifiers, tree, meaning, chunks, quiz)
+- [x] **FEND-01**: Analysis.tsx decomposed into 6 step components (skeleton, modifiers, tree, meaning, chunks, quiz)
 - [x] **FEND-02**: All server data fetching uses TanStack Query (no manual useEffect+fetch patterns)
-- [ ] **FEND-03**: Error states shown in UI components (no alert() calls anywhere)
+- [x] **FEND-03**: Error states shown in UI components (no alert() calls anywhere)
 - [x] **FEND-04**: Custom hooks encapsulate shared logic (data fetching, form handling)
-- [ ] **FEND-05**: Loading states differentiate cache check vs AI generation
+- [x] **FEND-05**: Loading states differentiate cache check vs AI generation
 - [x] **FEND-06**: Query mutations properly invalidate related caches after saves
 
 ### Backend Architecture
@@ -33,7 +33,7 @@ Requirements for the refactor release. Each maps to roadmap phases.
 
 ### UX Fixes
 
-- [ ] **UX-01**: Analysis page uses URL parameter (`/analysis/:id`) — survives page refresh
+- [x] **UX-01**: Analysis page uses URL parameter (`/analysis/:id`) — survives page refresh
 - [ ] **UX-02**: Sentence input validates min/max length with inline error messages (frontend)
 - [ ] **UX-03**: Backend validates sentence input length before processing
 - [ ] **UX-04**: Gemini API calls have timeout (30s) with user-visible retry option
@@ -94,13 +94,13 @@ Which phases cover which requirements. Updated during roadmap creation.
 | BEND-02 | Phase 2 | Complete |
 | BEND-03 | Phase 2 | Complete |
 | BEND-04 | Phase 2 | Complete |
-| FEND-01 | Phase 3 | Pending |
+| FEND-01 | Phase 3 | Complete |
 | FEND-02 | Phase 3 | Complete |
-| FEND-03 | Phase 3 | Pending |
+| FEND-03 | Phase 3 | Complete |
 | FEND-04 | Phase 3 | Complete |
-| FEND-05 | Phase 3 | Pending |
+| FEND-05 | Phase 3 | Complete |
 | FEND-06 | Phase 3 | Complete |
-| UX-01 | Phase 3 | Pending |
+| UX-01 | Phase 3 | Complete |
 | UX-02 | Phase 4 | Pending |
 | UX-03 | Phase 4 | Pending |
 | UX-04 | Phase 4 | Pending |
