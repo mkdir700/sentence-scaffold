@@ -3,14 +3,14 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: planning
-stopped_at: Phase 1 context gathered
-last_updated: "2026-03-10T04:36:45.917Z"
+stopped_at: Completed 01-foundation-01-PLAN.md
+last_updated: "2026-03-10T05:23:45.610Z"
 last_activity: 2026-03-10 — Roadmap created
 progress:
   total_phases: 4
   completed_phases: 0
-  total_plans: 0
-  completed_plans: 0
+  total_plans: 2
+  completed_plans: 1
   percent: 0
 ---
 
@@ -50,6 +50,7 @@ Progress: [░░░░░░░░░░] 0%
 - Trend: —
 
 *Updated after each plan completion*
+| Phase 01-foundation P01 | 3 | 2 tasks | 9 files |
 
 ## Accumulated Context
 
@@ -62,6 +63,10 @@ Recent decisions affecting current work:
 - [Roadmap]: Backend separation precedes frontend hooks so API contract is stable when hooks are written
 - [Roadmap]: TanStack Query migration + Analysis.tsx decomposition + URL navigation are one atomic Phase 3 (avoids Pitfall 1 + 3)
 - [Roadmap]: Test infrastructure set up in Phase 1; comprehensive tests written in Phase 4 after architecture stabilizes
+- [Phase 01-foundation]: Used zod v4 (npm default stable) — z.infer<> pattern identical, performance gains a bonus
+- [Phase 01-foundation]: Zod and Google GenAI schemas coexist independently: Zod validates runtime responses, GenAI schema stays in ai.ts
+- [Phase 01-foundation]: DB row types use plain TypeScript interfaces (no Zod) — DB is a trusted internal source
+- [Phase 01-foundation]: TEST_DB env var set in vitest.config.ts test.env to ensure :memory: is active before module evaluation
 
 ### Pending Todos
 
@@ -75,6 +80,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-03-10T04:36:45.912Z
-Stopped at: Phase 1 context gathered
-Resume file: .planning/phases/01-foundation/01-CONTEXT.md
+Last session: 2026-03-10T05:23:45.608Z
+Stopped at: Completed 01-foundation-01-PLAN.md
+Resume file: None

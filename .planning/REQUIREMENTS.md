@@ -9,10 +9,10 @@ Requirements for the refactor release. Each maps to roadmap phases.
 
 ### Type Safety
 
-- [ ] **TYPE-01**: All data structures have explicit TypeScript interfaces in `src/types/`
-- [ ] **TYPE-02**: Gemini API response validated at runtime with Zod schema
-- [ ] **TYPE-03**: Zod schemas serve as single source of truth for TypeScript types via `z.infer<>`
-- [ ] **TYPE-04**: Database query results use better-sqlite3 generics (no `any` casts)
+- [x] **TYPE-01**: All data structures have explicit TypeScript interfaces in `src/types/`
+- [x] **TYPE-02**: Gemini API response validated at runtime with Zod schema
+- [x] **TYPE-03**: Zod schemas serve as single source of truth for TypeScript types via `z.infer<>`
+- [x] **TYPE-04**: Database query results use better-sqlite3 generics (no `any` casts)
 - [ ] **TYPE-05**: `strict: true` enabled in tsconfig.json with zero `any` types remaining
 
 ### Frontend Architecture
@@ -40,7 +40,7 @@ Requirements for the refactor release. Each maps to roadmap phases.
 
 ### Testing
 
-- [ ] **TEST-01**: Vitest + React Testing Library configured and running
+- [x] **TEST-01**: Vitest + React Testing Library configured and running
 - [ ] **TEST-02**: Backend service layer has unit tests for all service functions
 - [ ] **TEST-03**: TanStack Query hooks have tests with mock API responses
 - [ ] **TEST-04**: Analysis step components have rendering tests
@@ -84,12 +84,12 @@ Which phases cover which requirements. Updated during roadmap creation.
 
 | Requirement | Phase | Status |
 |-------------|-------|--------|
-| TYPE-01 | Phase 1 | Pending |
-| TYPE-02 | Phase 1 | Pending |
-| TYPE-03 | Phase 1 | Pending |
-| TYPE-04 | Phase 1 | Pending |
+| TYPE-01 | Phase 1 | Complete |
+| TYPE-02 | Phase 1 | Complete |
+| TYPE-03 | Phase 1 | Complete |
+| TYPE-04 | Phase 1 | Complete |
 | TYPE-05 | Phase 1 | Pending |
-| TEST-01 | Phase 1 | Pending |
+| TEST-01 | Phase 1 | Complete |
 | BEND-01 | Phase 2 | Pending |
 | BEND-02 | Phase 2 | Pending |
 | BEND-03 | Phase 2 | Pending |
