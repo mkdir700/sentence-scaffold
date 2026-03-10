@@ -39,7 +39,7 @@ export default function App() {
       <main className="max-w-5xl mx-auto px-4 py-8">
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/analysis" element={<Analysis />} />
+          <Route path="/analysis/:id" element={<Analysis />} />
           <Route path="/library" element={<Library />} />
         </Routes>
       </main>
