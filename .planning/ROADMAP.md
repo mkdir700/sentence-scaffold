@@ -28,10 +28,11 @@ Decimal phases appear between their surrounding integers in numeric order.
   2. Zod schema validates a real Gemini API response without error, and TypeScript types are derived from it via `z.infer<>`
   3. `"strict": true` is enabled in tsconfig and the project compiles with zero errors
   4. `vitest run` executes at least one passing smoke test
-**Plans**: TBD
+**Plans:** 2 plans
 
 Plans:
-- [ ] 01-01: Define shared TypeScript interfaces and Zod schemas; enable strict mode
+- [ ] 01-01-PLAN.md — Install deps, create type definitions and Zod schemas, configure Vitest, write smoke tests
+- [ ] 01-02-PLAN.md — Enable strict mode, fix all errors, integrate Zod parse into ai.ts
 
 ### Phase 2: Backend Separation
 **Goal**: Monolithic server.ts is replaced by route/controller/service layers with a new GET `/api/analysis/:id` endpoint
@@ -85,7 +86,7 @@ Phases execute in numeric order: 1 → 2 → 3 → 4
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 1. Foundation | 0/1 | Not started | - |
+| 1. Foundation | 0/2 | Not started | - |
 | 2. Backend Separation | 0/1 | Not started | - |
 | 3. Frontend Core Refactor | 0/2 | Not started | - |
 | 4. Polish and Test Coverage | 0/2 | Not started | - |
