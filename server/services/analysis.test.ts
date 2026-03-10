@@ -50,12 +50,21 @@ const MOCK_ANALYSIS: AnalysisResult = {
     easy_to_misread: "动词短语的分隔容易造成误读",
     how_to_parse_next_time: "先找到主要动词",
   },
-  quiz: [
-    {
-      question: "这个句子的主语是什么？",
-      reference_answer: "The quick brown fox",
-    },
-  ],
+  practice: {
+    scenario: "你正在向朋友描述一只有趣的动物。",
+    tasks: [
+      {
+        cn: "请用英文描述这只狐狸的动作。",
+        hint: "请用 jump over",
+        reference: "The fox jumps over the dog.",
+      },
+      {
+        cn: "请说明这只狐狸的外观特征。",
+        hint: "请用形容词修饰名词",
+        reference: "The quick brown fox is very agile.",
+      },
+    ],
+  },
 };
 
 beforeEach(() => {

@@ -51,16 +51,21 @@ const REAL_GEMINI_RESPONSE_SNAPSHOT = {
     easy_to_misread: "Do not confuse 'lazy dog' as the subject — it is the object of the preposition 'over'.",
     how_to_parse_next_time: "Find subject (fox) → main verb (jumps) → prepositional phrase (over the lazy dog).",
   },
-  quiz: [
-    {
-      question: "What is the subject of the sentence?",
-      reference_answer: "The quick brown fox",
-    },
-    {
-      question: "What role does 'over the lazy dog' play in the sentence?",
-      reference_answer: "It is a prepositional phrase acting as an adverbial modifier of the verb 'jumps'.",
-    },
-  ],
+  practice: {
+    scenario: "你正在向朋友描述一只有趣的动物。",
+    tasks: [
+      {
+        cn: "请用英文描述这只狐狸的动作。",
+        hint: "请用 jump over",
+        reference: "The fox jumps over the dog.",
+      },
+      {
+        cn: "请说明这只狐狸的外观特征。",
+        hint: "请用形容词修饰名词",
+        reference: "The quick brown fox is very agile.",
+      },
+    ],
+  },
 };
 
 describe("AnalysisResultSchema", () => {
