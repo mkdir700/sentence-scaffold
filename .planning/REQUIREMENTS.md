@@ -46,6 +46,12 @@ Requirements for the refactor release. Each maps to roadmap phases.
 - [ ] **TEST-04**: Analysis step components have rendering tests
 - [ ] **TEST-05**: Database operations testable with in-memory SQLite
 
+### Localization
+
+- [ ] **L10N-01**: All AI-generated explanatory fields (summaries, role labels, explanations, tips, quiz Q&A) output in Simplified Chinese
+- [ ] **L10N-02**: All English source material fields (sentence, text spans, skeleton, expressions, examples) remain in English
+- [ ] **L10N-03**: systemInstruction and per-field schema descriptions enforce bilingual output contract
+
 ## v2 Requirements
 
 Deferred to future release. Tracked but not in current roadmap.
@@ -108,12 +114,15 @@ Which phases cover which requirements. Updated during roadmap creation.
 | TEST-03 | Phase 4 | Pending |
 | TEST-04 | Phase 4 | Pending |
 | TEST-05 | Phase 4 | Pending |
+| L10N-01 | Phase 5 | Pending |
+| L10N-02 | Phase 5 | Pending |
+| L10N-03 | Phase 5 | Pending |
 
 **Coverage:**
-- v1 requirements: 24 total
-- Mapped to phases: 24
+- v1 requirements: 27 total
+- Mapped to phases: 27
 - Unmapped: 0
 
 ---
 *Requirements defined: 2026-03-10*
-*Last updated: 2026-03-10 after roadmap creation*
+*Last updated: 2026-03-10 after Phase 5 planning*

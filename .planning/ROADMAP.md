@@ -80,10 +80,23 @@ Plans:
 - [ ] 04-01: Add frontend input validation and Gemini timeout handling
 - [ ] 04-02: Write unit tests for services, hooks, and step components
 
+### Phase 5: Localize AI Explanatory Content to User Language
+**Goal**: All AI-generated explanatory content (summaries, role labels, explanations, tips, quiz questions/answers) is in Simplified Chinese; English source material (sentence, text spans, skeleton, expressions, examples) stays in English
+**Depends on**: Phase 3 (uses ai.ts prompt and analysisSchema established in prior phases)
+**Requirements**: L10N-01, L10N-02, L10N-03
+**Success Criteria** (what must be TRUE):
+  1. New analyses return Chinese text in all explanatory fields (sentence_type.summary, components[].role, key_points[].point, review_summary.*, quiz.*)
+  2. English source material remains in English (sentence, core_skeleton, components[].text, chunks[].expression, chunks[].examples)
+  3. Test suite passes with Chinese mock fixture data, confirming Chinese content roundtrips correctly
+**Plans:** 1 plan
+
+Plans:
+- [ ] 05-01-PLAN.md — Update ai.ts prompt and schema descriptions for bilingual output, update test fixture
+
 ## Progress
 
 **Execution Order:**
-Phases execute in numeric order: 1 → 2 → 3 → 4
+Phases execute in numeric order: 1 → 2 → 3 → 4 → 5
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
@@ -91,3 +104,4 @@ Phases execute in numeric order: 1 → 2 → 3 → 4
 | 2. Backend Separation | 2/2 | Complete   | 2026-03-10 |
 | 3. Frontend Core Refactor | 2/2 | Complete   | 2026-03-10 |
 | 4. Polish and Test Coverage | 0/2 | Not started | - |
+| 5. Localize AI Content | 0/1 | Not started | - |
