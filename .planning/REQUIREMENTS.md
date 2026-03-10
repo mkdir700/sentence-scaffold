@@ -1,0 +1,119 @@
+# Requirements: Sentence Scaffold Refactor
+
+**Defined:** 2026-03-10
+**Core Value:** Sentence analysis workflow remains fully functional while codebase is restructured for maintainability
+
+## v1 Requirements
+
+Requirements for the refactor release. Each maps to roadmap phases.
+
+### Type Safety
+
+- [ ] **TYPE-01**: All data structures have explicit TypeScript interfaces in `src/types/`
+- [ ] **TYPE-02**: Gemini API response validated at runtime with Zod schema
+- [ ] **TYPE-03**: Zod schemas serve as single source of truth for TypeScript types via `z.infer<>`
+- [ ] **TYPE-04**: Database query results use better-sqlite3 generics (no `any` casts)
+- [ ] **TYPE-05**: `strict: true` enabled in tsconfig.json with zero `any` types remaining
+
+### Frontend Architecture
+
+- [ ] **FEND-01**: Analysis.tsx decomposed into 6 step components (skeleton, modifiers, tree, meaning, chunks, quiz)
+- [ ] **FEND-02**: All server data fetching uses TanStack Query (no manual useEffect+fetch patterns)
+- [ ] **FEND-03**: Error states shown in UI components (no alert() calls anywhere)
+- [ ] **FEND-04**: Custom hooks encapsulate shared logic (data fetching, form handling)
+- [ ] **FEND-05**: Loading states differentiate cache check vs AI generation
+- [ ] **FEND-06**: Query mutations properly invalidate related caches after saves
+
+### Backend Architecture
+
+- [ ] **BEND-01**: Express routes separated into route/controller/service layers
+- [ ] **BEND-02**: Request bodies validated with Zod middleware on all POST endpoints
+- [ ] **BEND-03**: `GET /api/analysis/:id` endpoint exists for URL-based analysis retrieval
+- [ ] **BEND-04**: Service layer functions are independently testable (no req/res dependency)
+
+### UX Fixes
+
+- [ ] **UX-01**: Analysis page uses URL parameter (`/analysis/:id`) — survives page refresh
+- [ ] **UX-02**: Sentence input validates min/max length with inline error messages (frontend)
+- [ ] **UX-03**: Backend validates sentence input length before processing
+- [ ] **UX-04**: Gemini API calls have timeout (30s) with user-visible retry option
+
+### Testing
+
+- [ ] **TEST-01**: Vitest + React Testing Library configured and running
+- [ ] **TEST-02**: Backend service layer has unit tests for all service functions
+- [ ] **TEST-03**: TanStack Query hooks have tests with mock API responses
+- [ ] **TEST-04**: Analysis step components have rendering tests
+- [ ] **TEST-05**: Database operations testable with in-memory SQLite
+
+## v2 Requirements
+
+Deferred to future release. Tracked but not in current roadmap.
+
+### Security
+
+- **SEC-01**: Authentication/authorization for multi-user support
+- **SEC-02**: Rate limiting on API endpoints
+- **SEC-03**: CORS policy for cross-origin deployment
+
+### Infrastructure
+
+- **INFRA-01**: Database migration system for schema versioning
+- **INFRA-02**: CI/CD pipeline with automated testing
+- **INFRA-03**: Error monitoring/logging service integration
+
+### Features
+
+- **FEAT-01**: Shareable analysis links (public access)
+- **FEAT-02**: Pagination/infinite scroll for Library page
+
+## Out of Scope
+
+| Feature | Reason |
+|---------|--------|
+| ORM (Drizzle/Prisma) | 3-table schema doesn't warrant ORM complexity |
+| Global state management (Redux/Zustand) | TanStack Query handles server state; local state is sufficient for UI |
+| SSR/SSG | Client-side SPA is appropriate for this use case |
+| Mobile app | Web-only tool |
+| Optimistic updates | Complexity not justified for current save patterns |
+| 100% test coverage | Diminishing returns; target meaningful coverage of critical paths |
+
+## Traceability
+
+Which phases cover which requirements. Updated during roadmap creation.
+
+| Requirement | Phase | Status |
+|-------------|-------|--------|
+| TYPE-01 | — | Pending |
+| TYPE-02 | — | Pending |
+| TYPE-03 | — | Pending |
+| TYPE-04 | — | Pending |
+| TYPE-05 | — | Pending |
+| FEND-01 | — | Pending |
+| FEND-02 | — | Pending |
+| FEND-03 | — | Pending |
+| FEND-04 | — | Pending |
+| FEND-05 | — | Pending |
+| FEND-06 | — | Pending |
+| BEND-01 | — | Pending |
+| BEND-02 | — | Pending |
+| BEND-03 | — | Pending |
+| BEND-04 | — | Pending |
+| UX-01 | — | Pending |
+| UX-02 | — | Pending |
+| UX-03 | — | Pending |
+| UX-04 | — | Pending |
+| TEST-01 | — | Pending |
+| TEST-02 | — | Pending |
+| TEST-03 | — | Pending |
+| TEST-04 | — | Pending |
+| TEST-05 | — | Pending |
+
+**Coverage:**
+- v1 requirements: 24 total
+- Mapped to phases: 0
+- Unmapped: 24
+
+---
+*Requirements defined: 2026-03-10*
+*Last updated: 2026-03-10 after initial definition*
