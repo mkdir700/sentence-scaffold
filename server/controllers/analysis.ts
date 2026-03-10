@@ -37,8 +37,8 @@ export function handleCheckSentence(req: Request, res: Response): void {
 export function handleSaveSentence(req: Request, res: Response): void {
   try {
     const { sentence, analysis } = saveSentenceSchema.parse(req.body);
-    saveSentence(sentence, analysis as AnalysisResult);
-    res.json({ success: true });
+    const { id } = saveSentence(sentence, analysis as AnalysisResult);
+    res.json({ success: true, id });
   } catch (error: unknown) {
     if (error instanceof ZodError) {
       res.status(400).json({ error: error.issues[0]?.message ?? "Invalid request" });

@@ -3,28 +3,32 @@ import type { SentenceRow, AnalysisResult } from "../../src/types/index.js";
 
 /**
  * Check if a sentence has been previously analyzed.
- * Returns the cached AnalysisResult or null if not found.
+ * Returns the cached AnalysisResult with id or null if not found.
  */
-export function checkSentence(sentence: string): AnalysisResult | null {
+export function checkSentence(
+  sentence: string
+): (AnalysisResult & { id: number }) | null {
   const row = db
     .prepare("SELECT * FROM sentences WHERE text = ?")
     .get(sentence) as SentenceRow | undefined;
 
   if (!row) return null;
-  return JSON.parse(row.analysis_json) as AnalysisResult;
+  const analysis = JSON.parse(row.analysis_json) as AnalysisResult;
+  return { ...analysis, id: row.id };
 }
 
 /**
  * Save a sentence and its analysis to the database.
+ * Returns the id of the newly inserted row.
  */
 export function saveSentence(
   sentence: string,
   analysis: AnalysisResult
-): void {
-  db.prepare("INSERT INTO sentences (text, analysis_json) VALUES (?, ?)").run(
-    sentence,
-    JSON.stringify(analysis)
-  );
+): { id: number } {
+  const result = db
+    .prepare("INSERT INTO sentences (text, analysis_json) VALUES (?, ?)")
+    .run(sentence, JSON.stringify(analysis));
+  return { id: Number(result.lastInsertRowid) };
 }
 
 /**

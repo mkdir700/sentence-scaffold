@@ -21,7 +21,12 @@ export interface SaveChunkRequest {
 }
 
 // Response types
-export type AnalysisResponse = AnalysisResult;
+export type AnalysisResponse = AnalysisResult & { id: number };
+
+export interface SaveSentenceResponse {
+  success: boolean;
+  id: number;
+}
 
 export interface ErrorResponse {
   error: string;
