@@ -66,4 +66,17 @@ export const api = {
       body: JSON.stringify(chunk),
     });
   },
+
+  getFeedback(params: {
+    userTranslation: string;
+    reference: string;
+    hint: string;
+    cn: string;
+  }): Promise<{ commentary: string }> {
+    return apiFetch("/api/feedback", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(params),
+    });
+  },
 };
