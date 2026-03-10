@@ -1,0 +1,91 @@
+# Roadmap: Sentence Scaffold Refactor
+
+## Overview
+
+A 4-phase brownfield refactor of a working React + Express sentence analysis tool. The ordering is non-negotiable: shared TypeScript types and Zod schemas must be established first because every subsequent phase depends on them. Backend separation comes second to stabilize the API contract before frontend hooks are built against it. The core frontend refactor — TanStack Query adoption, Analysis.tsx decomposition, and URL-based navigation — happens as one atomic phase to avoid stale-state bugs. Polish and test coverage close out the refactor once the architecture is stable.
+
+## Phases
+
+**Phase Numbering:**
+- Integer phases (1, 2, 3): Planned milestone work
+- Decimal phases (2.1, 2.2): Urgent insertions (marked with INSERTED)
+
+Decimal phases appear between their surrounding integers in numeric order.
+
+- [ ] **Phase 1: Foundation** - Define all TypeScript types, Zod schemas, and configure test infrastructure
+- [ ] **Phase 2: Backend Separation** - Split monolithic server.ts into routes/controllers/services with typed contracts
+- [ ] **Phase 3: Frontend Core Refactor** - TanStack Query, Analysis decomposition, and URL navigation as one atomic change
+- [ ] **Phase 4: Polish and Test Coverage** - Input validation, Gemini timeout handling, and comprehensive tests
+
+## Phase Details
+
+### Phase 1: Foundation
+**Goal**: Shared TypeScript interfaces and Zod schemas exist; test infrastructure is running; strict mode is enabled
+**Depends on**: Nothing (first phase)
+**Requirements**: TYPE-01, TYPE-02, TYPE-03, TYPE-04, TYPE-05, TEST-01
+**Success Criteria** (what must be TRUE):
+  1. All data structures (`AnalysisResult`, `Chunk`, `HistoryEntry`, etc.) have explicit interfaces in `src/types/` with zero `any` types
+  2. Zod schema validates a real Gemini API response without error, and TypeScript types are derived from it via `z.infer<>`
+  3. `"strict": true` is enabled in tsconfig and the project compiles with zero errors
+  4. `vitest run` executes at least one passing smoke test
+**Plans**: TBD
+
+Plans:
+- [ ] 01-01: Define shared TypeScript interfaces and Zod schemas; enable strict mode
+
+### Phase 2: Backend Separation
+**Goal**: Monolithic server.ts is replaced by route/controller/service layers with a new GET `/api/analysis/:id` endpoint
+**Depends on**: Phase 1
+**Requirements**: BEND-01, BEND-02, BEND-03, BEND-04
+**Success Criteria** (what must be TRUE):
+  1. All API routes are organized into `server/routes/`, `server/controllers/`, and `server/services/` — no business logic remains in the route handler
+  2. `GET /api/analysis/:id` returns a cached analysis by ID with correct typed response
+  3. Sending a POST with a missing or too-short sentence body returns a 400 response with a descriptive error message
+  4. Service functions can be called directly in a test (no HTTP server required) and return correct results
+**Plans**: TBD
+
+Plans:
+- [ ] 02-01: Extract routes, controllers, and services; add GET analysis-by-id endpoint and Zod request validation
+
+### Phase 3: Frontend Core Refactor
+**Goal**: All server state is managed by TanStack Query; Analysis.tsx is decomposed into 6 step components; the analysis page survives a browser refresh
+**Depends on**: Phase 2
+**Requirements**: FEND-01, FEND-02, FEND-03, FEND-04, FEND-05, FEND-06, UX-01
+**Success Criteria** (what must be TRUE):
+  1. Navigating to `/analysis/:id` directly (or refreshing the analysis page) loads and displays the correct analysis without data loss
+  2. Saving a sentence or chunk and then viewing the Library page shows the newly saved item without a manual refresh
+  3. When a save or fetch fails, an inline error message appears in the UI — no `alert()` dialog fires anywhere in the app
+  4. The loading indicator distinguishes between a cache-hit (fast, no spinner) and a new AI generation (shows "Generating..." state)
+  5. Analysis.tsx contains no inline step rendering — each of the 6 steps is a standalone component in `src/components/analysis/`
+**Plans**: TBD
+
+Plans:
+- [ ] 03-01: Set up QueryClientProvider and typed API client layer
+- [ ] 03-02: Migrate all data fetching to TanStack Query and decompose Analysis.tsx into step components with URL-based navigation
+
+### Phase 4: Polish and Test Coverage
+**Goal**: Input validation and Gemini timeout handling are in place; critical-path behavior is covered by tests
+**Depends on**: Phase 3
+**Requirements**: UX-02, UX-03, UX-04, TEST-02, TEST-03, TEST-04, TEST-05
+**Success Criteria** (what must be TRUE):
+  1. Submitting a sentence shorter than 10 or longer than 2000 characters shows an inline validation error and does not call the API
+  2. When Gemini does not respond within 30 seconds, the UI shows a "taking longer than expected" message with a retry option
+  3. All backend service functions have unit tests that pass using in-memory SQLite (no real database file touched)
+  4. Each of the 6 Analysis step components renders correctly in a test given typed mock data
+**Plans**: TBD
+
+Plans:
+- [ ] 04-01: Add frontend input validation and Gemini timeout handling
+- [ ] 04-02: Write unit tests for services, hooks, and step components
+
+## Progress
+
+**Execution Order:**
+Phases execute in numeric order: 1 → 2 → 3 → 4
+
+| Phase | Plans Complete | Status | Completed |
+|-------|----------------|--------|-----------|
+| 1. Foundation | 0/1 | Not started | - |
+| 2. Backend Separation | 0/1 | Not started | - |
+| 3. Frontend Core Refactor | 0/2 | Not started | - |
+| 4. Polish and Test Coverage | 0/2 | Not started | - |

@@ -84,36 +84,36 @@ Which phases cover which requirements. Updated during roadmap creation.
 
 | Requirement | Phase | Status |
 |-------------|-------|--------|
-| TYPE-01 | — | Pending |
-| TYPE-02 | — | Pending |
-| TYPE-03 | — | Pending |
-| TYPE-04 | — | Pending |
-| TYPE-05 | — | Pending |
-| FEND-01 | — | Pending |
-| FEND-02 | — | Pending |
-| FEND-03 | — | Pending |
-| FEND-04 | — | Pending |
-| FEND-05 | — | Pending |
-| FEND-06 | — | Pending |
-| BEND-01 | — | Pending |
-| BEND-02 | — | Pending |
-| BEND-03 | — | Pending |
-| BEND-04 | — | Pending |
-| UX-01 | — | Pending |
-| UX-02 | — | Pending |
-| UX-03 | — | Pending |
-| UX-04 | — | Pending |
-| TEST-01 | — | Pending |
-| TEST-02 | — | Pending |
-| TEST-03 | — | Pending |
-| TEST-04 | — | Pending |
-| TEST-05 | — | Pending |
+| TYPE-01 | Phase 1 | Pending |
+| TYPE-02 | Phase 1 | Pending |
+| TYPE-03 | Phase 1 | Pending |
+| TYPE-04 | Phase 1 | Pending |
+| TYPE-05 | Phase 1 | Pending |
+| TEST-01 | Phase 1 | Pending |
+| BEND-01 | Phase 2 | Pending |
+| BEND-02 | Phase 2 | Pending |
+| BEND-03 | Phase 2 | Pending |
+| BEND-04 | Phase 2 | Pending |
+| FEND-01 | Phase 3 | Pending |
+| FEND-02 | Phase 3 | Pending |
+| FEND-03 | Phase 3 | Pending |
+| FEND-04 | Phase 3 | Pending |
+| FEND-05 | Phase 3 | Pending |
+| FEND-06 | Phase 3 | Pending |
+| UX-01 | Phase 3 | Pending |
+| UX-02 | Phase 4 | Pending |
+| UX-03 | Phase 4 | Pending |
+| UX-04 | Phase 4 | Pending |
+| TEST-02 | Phase 4 | Pending |
+| TEST-03 | Phase 4 | Pending |
+| TEST-04 | Phase 4 | Pending |
+| TEST-05 | Phase 4 | Pending |
 
 **Coverage:**
 - v1 requirements: 24 total
-- Mapped to phases: 0
-- Unmapped: 24
+- Mapped to phases: 24
+- Unmapped: 0
 
 ---
 *Requirements defined: 2026-03-10*
-*Last updated: 2026-03-10 after initial definition*
+*Last updated: 2026-03-10 after roadmap creation*
