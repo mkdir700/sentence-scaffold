@@ -13,7 +13,7 @@ Requirements for the refactor release. Each maps to roadmap phases.
 - [x] **TYPE-02**: Gemini API response validated at runtime with Zod schema
 - [x] **TYPE-03**: Zod schemas serve as single source of truth for TypeScript types via `z.infer<>`
 - [x] **TYPE-04**: Database query results use better-sqlite3 generics (no `any` casts)
-- [ ] **TYPE-05**: `strict: true` enabled in tsconfig.json with zero `any` types remaining
+- [x] **TYPE-05**: `strict: true` enabled in tsconfig.json with zero `any` types remaining
 
 ### Frontend Architecture
 
@@ -88,7 +88,7 @@ Which phases cover which requirements. Updated during roadmap creation.
 | TYPE-02 | Phase 1 | Complete |
 | TYPE-03 | Phase 1 | Complete |
 | TYPE-04 | Phase 1 | Complete |
-| TYPE-05 | Phase 1 | Pending |
+| TYPE-05 | Phase 1 | Complete |
 | TEST-01 | Phase 1 | Complete |
 | BEND-01 | Phase 2 | Pending |
 | BEND-02 | Phase 2 | Pending |

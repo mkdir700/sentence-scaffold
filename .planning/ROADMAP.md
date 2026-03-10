@@ -12,7 +12,7 @@ A 4-phase brownfield refactor of a working React + Express sentence analysis too
 
 Decimal phases appear between their surrounding integers in numeric order.
 
-- [ ] **Phase 1: Foundation** - Define all TypeScript types, Zod schemas, and configure test infrastructure
+- [x] **Phase 1: Foundation** - Define all TypeScript types, Zod schemas, and configure test infrastructure (completed 2026-03-10)
 - [ ] **Phase 2: Backend Separation** - Split monolithic server.ts into routes/controllers/services with typed contracts
 - [ ] **Phase 3: Frontend Core Refactor** - TanStack Query, Analysis decomposition, and URL navigation as one atomic change
 - [ ] **Phase 4: Polish and Test Coverage** - Input validation, Gemini timeout handling, and comprehensive tests
@@ -28,7 +28,7 @@ Decimal phases appear between their surrounding integers in numeric order.
   2. Zod schema validates a real Gemini API response without error, and TypeScript types are derived from it via `z.infer<>`
   3. `"strict": true` is enabled in tsconfig and the project compiles with zero errors
   4. `vitest run` executes at least one passing smoke test
-**Plans:** 1/2 plans executed
+**Plans:** 2/2 plans complete
 
 Plans:
 - [ ] 01-01-PLAN.md — Install deps, create type definitions and Zod schemas, configure Vitest, write smoke tests
@@ -86,7 +86,7 @@ Phases execute in numeric order: 1 → 2 → 3 → 4
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 1. Foundation | 1/2 | In Progress|  |
+| 1. Foundation | 2/2 | Complete   | 2026-03-10 |
 | 2. Backend Separation | 0/1 | Not started | - |
 | 3. Frontend Core Refactor | 0/2 | Not started | - |
 | 4. Polish and Test Coverage | 0/2 | Not started | - |
