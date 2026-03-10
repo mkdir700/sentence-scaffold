@@ -2,12 +2,19 @@ import Database from "better-sqlite3";
 import path from "path";
 import fs from "fs";
 
-const dbDir = path.join(process.cwd(), "data");
-if (!fs.existsSync(dbDir)) {
-  fs.mkdirSync(dbDir, { recursive: true });
+const dbPath =
+  process.env.TEST_DB === ":memory:"
+    ? ":memory:"
+    : path.join(process.cwd(), "data", "app.db");
+
+if (dbPath !== ":memory:") {
+  const dbDir = path.join(process.cwd(), "data");
+  if (!fs.existsSync(dbDir)) {
+    fs.mkdirSync(dbDir, { recursive: true });
+  }
 }
 
-export const db = new Database(path.join(dbDir, "app.db"));
+export const db = new Database(dbPath);
 
 // Initialize schema
 db.exec(`
