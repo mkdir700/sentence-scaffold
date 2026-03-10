@@ -48,9 +48,9 @@ Requirements for the refactor release. Each maps to roadmap phases.
 
 ### Localization
 
-- [ ] **L10N-01**: All AI-generated explanatory fields (summaries, role labels, explanations, tips, quiz Q&A) output in Simplified Chinese
-- [ ] **L10N-02**: All English source material fields (sentence, text spans, skeleton, expressions, examples) remain in English
-- [ ] **L10N-03**: systemInstruction and per-field schema descriptions enforce bilingual output contract
+- [x] **L10N-01**: All AI-generated explanatory fields (summaries, role labels, explanations, tips, quiz Q&A) output in Simplified Chinese
+- [x] **L10N-02**: All English source material fields (sentence, text spans, skeleton, expressions, examples) remain in English
+- [x] **L10N-03**: systemInstruction and per-field schema descriptions enforce bilingual output contract
 
 ## v2 Requirements
 
@@ -114,9 +114,9 @@ Which phases cover which requirements. Updated during roadmap creation.
 | TEST-03 | Phase 4 | Pending |
 | TEST-04 | Phase 4 | Pending |
 | TEST-05 | Phase 4 | Pending |
-| L10N-01 | Phase 5 | Pending |
-| L10N-02 | Phase 5 | Pending |
-| L10N-03 | Phase 5 | Pending |
+| L10N-01 | Phase 5 | Complete |
+| L10N-02 | Phase 5 | Complete |
+| L10N-03 | Phase 5 | Complete |
 
 **Coverage:**
 - v1 requirements: 27 total

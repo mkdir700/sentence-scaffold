@@ -88,7 +88,7 @@ Plans:
   1. New analyses return Chinese text in all explanatory fields (sentence_type.summary, components[].role, key_points[].point, review_summary.*, quiz.*)
   2. English source material remains in English (sentence, core_skeleton, components[].text, chunks[].expression, chunks[].examples)
   3. Test suite passes with Chinese mock fixture data, confirming Chinese content roundtrips correctly
-**Plans:** 1 plan
+**Plans:** 1/1 plans complete
 
 Plans:
 - [ ] 05-01-PLAN.md — Update ai.ts prompt and schema descriptions for bilingual output, update test fixture
@@ -104,4 +104,4 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 → 5
 | 2. Backend Separation | 2/2 | Complete   | 2026-03-10 |
 | 3. Frontend Core Refactor | 2/2 | Complete   | 2026-03-10 |
 | 4. Polish and Test Coverage | 0/2 | Not started | - |
-| 5. Localize AI Content | 0/1 | Not started | - |
+| 5. Localize AI Content | 1/1 | Complete   | 2026-03-10 |

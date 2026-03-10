@@ -3,14 +3,14 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: planning
-stopped_at: Completed 03-frontend-core-refactor-02-PLAN.md
-last_updated: "2026-03-10T06:46:13.169Z"
+stopped_at: Completed 05-localize-ai-explanatory-content-to-user-language-01-PLAN.md
+last_updated: "2026-03-10T07:29:49.153Z"
 last_activity: 2026-03-10 — Roadmap created
 progress:
-  total_phases: 4
-  completed_phases: 3
-  total_plans: 6
-  completed_plans: 6
+  total_phases: 5
+  completed_phases: 4
+  total_plans: 7
+  completed_plans: 7
   percent: 0
 ---
 
@@ -56,6 +56,7 @@ Progress: [░░░░░░░░░░] 0%
 | Phase 02-backend-separation P02 | 8 | 2 tasks | 7 files |
 | Phase 03-frontend-core-refactor P01 | 2 | 2 tasks | 7 files |
 | Phase 03-frontend-core-refactor P02 | 20 | 2 tasks | 10 files |
+| Phase 05-localize-ai-explanatory-content-to-user-language P01 | 2 | 2 tasks | 2 files |
 
 ## Accumulated Context
 
@@ -85,6 +86,12 @@ Recent decisions affecting current work:
 - [Phase 03-frontend-core-refactor]: Step components are purely presentational — no data fetching, only typed props from Analysis.tsx
 - [Phase 03-frontend-core-refactor]: analysisQueryOptions spread with enabled: !isNaN(analysisId) guards invalid IDs without conditional hook call
 - [Phase 03-frontend-core-refactor]: History items navigate to /analysis/:id directly — no re-analysis, data already in DB
+- [Phase 05-localize-ai-explanatory-content-to-user-language]: Explanatory field descriptions written in Chinese at schema level, not just in systemInstruction, to give per-field language cues
+- [Phase 05-localize-ai-explanatory-content-to-user-language]: English-source fields (text, expression, examples, core_skeleton, subject, verb) retain explicit 'keep in English' qualifier in descriptions
+
+### Roadmap Evolution
+
+- Phase 5 added: Localize AI explanatory content to user language
 
 ### Pending Todos
 
@@ -98,6 +105,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-03-10T06:42:20.025Z
-Stopped at: Completed 03-frontend-core-refactor-02-PLAN.md
+Last session: 2026-03-10T07:29:49.151Z
+Stopped at: Completed 05-localize-ai-explanatory-content-to-user-language-01-PLAN.md
 Resume file: None
