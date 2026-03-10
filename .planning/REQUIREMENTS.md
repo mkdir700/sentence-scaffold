@@ -26,8 +26,8 @@ Requirements for the refactor release. Each maps to roadmap phases.
 
 ### Backend Architecture
 
-- [ ] **BEND-01**: Express routes separated into route/controller/service layers
-- [ ] **BEND-02**: Request bodies validated with Zod middleware on all POST endpoints
+- [x] **BEND-01**: Express routes separated into route/controller/service layers
+- [x] **BEND-02**: Request bodies validated with Zod middleware on all POST endpoints
 - [x] **BEND-03**: `GET /api/analysis/:id` endpoint exists for URL-based analysis retrieval
 - [x] **BEND-04**: Service layer functions are independently testable (no req/res dependency)
 
@@ -90,8 +90,8 @@ Which phases cover which requirements. Updated during roadmap creation.
 | TYPE-04 | Phase 1 | Complete |
 | TYPE-05 | Phase 1 | Complete |
 | TEST-01 | Phase 1 | Complete |
-| BEND-01 | Phase 2 | Pending |
-| BEND-02 | Phase 2 | Pending |
+| BEND-01 | Phase 2 | Complete |
+| BEND-02 | Phase 2 | Complete |
 | BEND-03 | Phase 2 | Complete |
 | BEND-04 | Phase 2 | Complete |
 | FEND-01 | Phase 3 | Pending |

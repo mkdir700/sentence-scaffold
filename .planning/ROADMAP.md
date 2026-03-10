@@ -13,7 +13,7 @@ A 4-phase brownfield refactor of a working React + Express sentence analysis too
 Decimal phases appear between their surrounding integers in numeric order.
 
 - [x] **Phase 1: Foundation** - Define all TypeScript types, Zod schemas, and configure test infrastructure (completed 2026-03-10)
-- [ ] **Phase 2: Backend Separation** - Split monolithic server.ts into routes/controllers/services with typed contracts
+- [x] **Phase 2: Backend Separation** - Split monolithic server.ts into routes/controllers/services with typed contracts (completed 2026-03-10)
 - [ ] **Phase 3: Frontend Core Refactor** - TanStack Query, Analysis decomposition, and URL navigation as one atomic change
 - [ ] **Phase 4: Polish and Test Coverage** - Input validation, Gemini timeout handling, and comprehensive tests
 
@@ -43,7 +43,7 @@ Plans:
   2. `GET /api/analysis/:id` returns a cached analysis by ID with correct typed response
   3. Sending a POST with a missing or too-short sentence body returns a 400 response with a descriptive error message
   4. Service functions can be called directly in a test (no HTTP server required) and return correct results
-**Plans:** 1/2 plans executed
+**Plans:** 2/2 plans complete
 
 Plans:
 - [ ] 02-01-PLAN.md — Create API contract types, service layer with unit tests
@@ -88,6 +88,6 @@ Phases execute in numeric order: 1 → 2 → 3 → 4
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
 | 1. Foundation | 2/2 | Complete   | 2026-03-10 |
-| 2. Backend Separation | 1/2 | In Progress|  |
+| 2. Backend Separation | 2/2 | Complete   | 2026-03-10 |
 | 3. Frontend Core Refactor | 0/2 | Not started | - |
 | 4. Polish and Test Coverage | 0/2 | Not started | - |
