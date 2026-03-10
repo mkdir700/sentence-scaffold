@@ -1,37 +1,40 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
+import { useQuery } from "@tanstack/react-query";
 import {
   Card,
   CardContent,
-  CardHeader,
-  CardTitle,
 } from "@/src/components/ui/card";
 import { Badge } from "@/src/components/ui/badge";
 import { BookOpen, Bookmark, History } from "lucide-react";
+import {
+  historyQueryOptions,
+  savedSentencesQueryOptions,
+  chunksQueryOptions,
+} from "@/src/hooks/queries";
 
 export default function Library() {
   const [activeTab, setActiveTab] = useState<"history" | "saved" | "chunks">(
     "history",
   );
-  const [history, setHistory] = useState<any[]>([]);
-  const [savedSentences, setSavedSentences] = useState<any[]>([]);
-  const [chunks, setChunks] = useState<any[]>([]);
 
-  useEffect(() => {
-    fetch("/api/history")
-      .then((res) => res.json())
-      .then((data) => setHistory(data))
-      .catch(console.error);
+  const historyQuery = useQuery(historyQueryOptions());
+  const savedQuery = useQuery(savedSentencesQueryOptions());
+  const chunksQuery = useQuery(chunksQueryOptions());
 
-    fetch("/api/saved")
-      .then((res) => res.json())
-      .then((data) => setSavedSentences(data))
-      .catch(console.error);
-
-    fetch("/api/chunks")
-      .then((res) => res.json())
-      .then((data) => setChunks(data))
-      .catch(console.error);
-  }, []);
+  const history = historyQuery.data ?? [];
+  const savedSentences = (savedQuery.data ?? []) as Array<{
+    id: number;
+    text: string;
+    analysis_json: string;
+    created_at: string;
+  }>;
+  const chunks = (chunksQuery.data ?? []) as Array<{
+    id: number;
+    expression: string;
+    meaning: string;
+    examples: string | null;
+    created_at: string;
+  }>;
 
   return (
     <div className="max-w-5xl mx-auto space-y-8">
@@ -83,6 +86,13 @@ export default function Library() {
       <div className="mt-8">
         {activeTab === "history" && (
           <div className="grid gap-4">
+            {historyQuery.isError && (
+              <p className="text-red-600 text-sm">
+                {historyQuery.error instanceof Error
+                  ? historyQuery.error.message
+                  : "Failed to load history."}
+              </p>
+            )}
             {history.length === 0 ? (
               <p className="text-zinc-500 text-center py-12">
                 No history yet. Start analyzing sentences!
@@ -109,6 +119,13 @@ export default function Library() {
 
         {activeTab === "saved" && (
           <div className="grid gap-4">
+            {savedQuery.isError && (
+              <p className="text-red-600 text-sm">
+                {savedQuery.error instanceof Error
+                  ? savedQuery.error.message
+                  : "Failed to load saved sentences."}
+              </p>
+            )}
             {savedSentences.length === 0 ? (
               <div className="text-center py-20 border-2 border-dashed border-zinc-200 rounded-xl">
                 <Bookmark className="w-8 h-8 text-zinc-300 mx-auto mb-4" />
@@ -158,6 +175,13 @@ export default function Library() {
 
         {activeTab === "chunks" && (
           <div className="grid gap-4 md:grid-cols-2">
+            {chunksQuery.isError && (
+              <p className="col-span-full text-red-600 text-sm">
+                {chunksQuery.error instanceof Error
+                  ? chunksQuery.error.message
+                  : "Failed to load expression chunks."}
+              </p>
+            )}
             {chunks.length === 0 ? (
               <div className="col-span-full text-center py-20 border-2 border-dashed border-zinc-200 rounded-xl">
                 <BookOpen className="w-8 h-8 text-zinc-300 mx-auto mb-4" />
@@ -170,7 +194,7 @@ export default function Library() {
               </div>
             ) : (
               chunks.map((chunk) => {
-                const examples = JSON.parse(chunk.examples || "[]");
+                const examples = JSON.parse(chunk.examples ?? "[]") as string[];
                 return (
                   <Card key={chunk.id} className="border-zinc-200">
                     <CardContent className="p-5">
@@ -186,7 +210,7 @@ export default function Library() {
                             Examples
                           </p>
                           <ul className="space-y-1 text-sm text-zinc-700">
-                            {examples.map((ex: string, j: number) => (
+                            {examples.map((ex, j) => (
                               <li key={j} className="italic">
                                 &ldquo;{ex}&rdquo;
                               </li>

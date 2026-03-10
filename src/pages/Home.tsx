@@ -1,61 +1,45 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useNavigate } from "react-router";
+import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { Button } from "@/src/components/ui/button";
-import {
-  Card,
-  CardContent,
-} from "@/src/components/ui/card";
+import { Card, CardContent } from "@/src/components/ui/card";
 import { ArrowRight, Loader2, Sparkles } from "lucide-react";
 import { analyzeSentence } from "@/src/services/ai";
+import { api } from "@/src/lib/api";
+import { historyQueryOptions, queryKeys } from "@/src/hooks/queries";
 
 export default function Home() {
   const [sentence, setSentence] = useState("");
-  const [isLoading, setIsLoading] = useState(false);
-  const [history, setHistory] = useState<any[]>([]);
   const navigate = useNavigate();
+  const queryClient = useQueryClient();
 
-  useEffect(() => {
-    fetch("/api/history")
-      .then((res) => res.json())
-      .then((data) => setHistory(data))
-      .catch(console.error);
-  }, []);
+  const historyQuery = useQuery(historyQueryOptions());
 
-  const handleAnalyze = async (e?: React.FormEvent) => {
+  const analyzeMutation = useMutation({
+    mutationFn: async (text: string) => {
+      try {
+        // Check if already analyzed (cache hit)
+        const cached = await api.checkSentence(text);
+        return cached;
+      } catch {
+        // Not cached — analyze with AI then persist
+        const analysis = await analyzeSentence(text);
+        const saved = await api.saveSentence(text, analysis);
+        return { ...analysis, id: saved.id, sentence: text };
+      }
+    },
+    onSuccess: (data) => {
+      void queryClient.invalidateQueries({
+        queryKey: queryKeys.history.all(),
+      });
+      void navigate(`/analysis/${data.id}`);
+    },
+  });
+
+  const handleAnalyze = (e?: React.FormEvent) => {
     if (e) e.preventDefault();
     if (!sentence.trim()) return;
-
-    setIsLoading(true);
-    try {
-      // Check if already analyzed
-      const checkRes = await fetch("/api/check-sentence", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ sentence }),
-      });
-
-      let data;
-      if (checkRes.ok) {
-        data = await checkRes.json();
-      } else {
-        // Analyze with AI
-        data = await analyzeSentence(sentence);
-
-        // Save to DB
-        await fetch("/api/save-sentence", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ sentence, analysis: data }),
-        });
-      }
-
-      navigate("/analysis", { state: { analysis: data } });
-    } catch (error) {
-      console.error(error);
-      alert("Failed to analyze sentence. Please try again.");
-    } finally {
-      setIsLoading(false);
-    }
+    analyzeMutation.mutate(sentence);
   };
 
   const exampleSentences = [
@@ -93,14 +77,21 @@ export default function Home() {
                 className="w-full min-h-[120px] p-4 rounded-xl border border-zinc-200 bg-zinc-50 focus:bg-white focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all resize-none text-lg"
               />
             </div>
+            {analyzeMutation.isError && (
+              <p className="text-red-600 text-sm mt-2">
+                {analyzeMutation.error instanceof Error
+                  ? analyzeMutation.error.message
+                  : "Failed to analyze sentence. Please try again."}
+              </p>
+            )}
             <div className="flex justify-end">
               <Button
                 type="submit"
                 size="lg"
-                disabled={!sentence.trim() || isLoading}
+                disabled={!sentence.trim() || analyzeMutation.isPending}
                 className="bg-indigo-600 hover:bg-indigo-700 text-white px-8"
               >
-                {isLoading ? (
+                {analyzeMutation.isPending ? (
                   <>
                     <Loader2 className="mr-2 h-5 w-5 animate-spin" />
                     Analyzing...
@@ -136,13 +127,21 @@ export default function Home() {
         </div>
       </div>
 
-      {history.length > 0 && (
+      {historyQuery.isError && (
+        <p className="text-red-600 text-sm">
+          {historyQuery.error instanceof Error
+            ? historyQuery.error.message
+            : "Failed to load history."}
+        </p>
+      )}
+
+      {(historyQuery.data ?? []).length > 0 && (
         <div className="space-y-4">
           <h3 className="text-sm font-semibold text-zinc-500 uppercase tracking-wider">
             Recent History
           </h3>
           <div className="space-y-2">
-            {history.map((item) => (
+            {(historyQuery.data ?? []).map((item) => (
               <div
                 key={item.id}
                 className="flex items-center justify-between p-4 rounded-xl bg-white border border-zinc-100"
@@ -151,10 +150,7 @@ export default function Home() {
                 <Button
                   variant="ghost"
                   size="sm"
-                  onClick={() => {
-                    setSentence(item.text);
-                    handleAnalyze();
-                  }}
+                  onClick={() => void navigate(`/analysis/${item.id}`)}
                 >
                   <ArrowRight className="h-4 w-4" />
                 </Button>
