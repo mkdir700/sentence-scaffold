@@ -103,7 +103,7 @@ Plans:
   3. StepPractice component renders scenario, sequential task cards with submit-then-reveal flow
   4. Reference translations are hidden until after user submits
   5. All existing tests pass with updated practice fixtures
-**Plans:** 1/3 plans executed
+**Plans:** 2/3 plans executed
 
 Plans:
 - [ ] 06-01-PLAN.md — Replace quiz with practice in Zod schema, GenAI schema, AI prompt, and test fixtures
@@ -122,4 +122,4 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 → 5 → 6
 | 3. Frontend Core Refactor | 2/2 | Complete   | 2026-03-10 |
 | 4. Polish and Test Coverage | 0/2 | Not started | - |
 | 5. Localize AI Content | 1/1 | Complete    | 2026-03-10 |
-| 6. Output Practice | 1/3 | In Progress|  |
+| 6. Output Practice | 2/3 | In Progress|  |
