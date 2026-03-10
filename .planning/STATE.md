@@ -3,14 +3,14 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: planning
-stopped_at: Phase 6 context gathered
-last_updated: "2026-03-10T07:52:55.431Z"
+stopped_at: Completed 06-01-PLAN.md (practice schema + test fixtures)
+last_updated: "2026-03-10T08:15:33.182Z"
 last_activity: 2026-03-10 — Roadmap created
 progress:
   total_phases: 6
   completed_phases: 4
-  total_plans: 7
-  completed_plans: 7
+  total_plans: 10
+  completed_plans: 8
   percent: 0
 ---
 
@@ -57,6 +57,7 @@ Progress: [░░░░░░░░░░] 0%
 | Phase 03-frontend-core-refactor P01 | 2 | 2 tasks | 7 files |
 | Phase 03-frontend-core-refactor P02 | 20 | 2 tasks | 10 files |
 | Phase 05-localize-ai-explanatory-content-to-user-language P01 | 2 | 2 tasks | 2 files |
+| Phase 06-replace-quiz-with-scenario-based-output-practice-learning-by-doing P01 | 525603 | 2 tasks | 6 files |
 
 ## Accumulated Context
 
@@ -88,6 +89,8 @@ Recent decisions affecting current work:
 - [Phase 03-frontend-core-refactor]: History items navigate to /analysis/:id directly — no re-analysis, data already in DB
 - [Phase 05-localize-ai-explanatory-content-to-user-language]: Explanatory field descriptions written in Chinese at schema level, not just in systemInstruction, to give per-field language cues
 - [Phase 05-localize-ai-explanatory-content-to-user-language]: English-source fields (text, expression, examples, core_skeleton, subject, verb) retain explicit 'keep in English' qualifier in descriptions
+- [Phase 06-replace-quiz-with-scenario-based-output-practice-learning-by-doing]: practice.tasks uses .min(2).max(3) Zod constraint to enforce 2-3 tasks per the product decision
+- [Phase 06-replace-quiz-with-scenario-based-output-practice-learning-by-doing]: Cache clearing (DELETE FROM sentences) required as deployment step — existing rows store quiz JSON that fails Zod parse after this schema change
 
 ### Roadmap Evolution
 
@@ -106,6 +109,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-03-10T07:52:55.429Z
-Stopped at: Phase 6 context gathered
-Resume file: .planning/phases/06-replace-quiz-with-scenario-based-output-practice-learning-by-doing/06-CONTEXT.md
+Last session: 2026-03-10T08:15:33.179Z
+Stopped at: Completed 06-01-PLAN.md (practice schema + test fixtures)
+Resume file: None
