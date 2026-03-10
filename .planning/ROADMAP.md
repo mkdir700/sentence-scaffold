@@ -59,11 +59,11 @@ Plans:
   3. When a save or fetch fails, an inline error message appears in the UI — no `alert()` dialog fires anywhere in the app
   4. The loading indicator distinguishes between a cache-hit (fast, no spinner) and a new AI generation (shows "Generating..." state)
   5. Analysis.tsx contains no inline step rendering — each of the 6 steps is a standalone component in `src/components/analysis/`
-**Plans**: TBD
+**Plans:** 2 plans
 
 Plans:
-- [ ] 03-01: Set up QueryClientProvider and typed API client layer
-- [ ] 03-02: Migrate all data fetching to TanStack Query and decompose Analysis.tsx into step components with URL-based navigation
+- [ ] 03-01-PLAN.md — Install TanStack Query, patch backend to return IDs, create typed API client and query/mutation hooks
+- [ ] 03-02-PLAN.md — Decompose Analysis.tsx into 6 step components, migrate all pages to TanStack Query, URL-based navigation
 
 ### Phase 4: Polish and Test Coverage
 **Goal**: Input validation and Gemini timeout handling are in place; critical-path behavior is covered by tests
