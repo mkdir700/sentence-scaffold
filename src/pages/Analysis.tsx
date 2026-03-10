@@ -14,7 +14,7 @@ import { StepModifiers } from "@/src/components/analysis/StepModifiers";
 import { StepTree } from "@/src/components/analysis/StepTree";
 import { StepMeaning } from "@/src/components/analysis/StepMeaning";
 import { StepChunks } from "@/src/components/analysis/StepChunks";
-import { StepQuiz } from "@/src/components/analysis/StepQuiz";
+import { StepPractice } from "@/src/components/analysis/StepPractice";
 import type { AnalysisResult } from "@/src/types/index";
 
 export default function Analysis() {
@@ -166,7 +166,7 @@ export default function Analysis() {
         />
       )}
 
-      {isVisible(6) && <StepQuiz practice={data.practice} />}
+      {isVisible(6) && <StepPractice practice={data.practice} />}
 
       {!showAll && step < 6 && (
         <div className="flex justify-center mt-12">
