@@ -1,3 +1,39 @@
-// API request/response contract types — populated in Phase 2
-// Placeholder to establish the file in the barrel export
-export {};
+import type { AnalysisResult } from "./analysis.js";
+
+// Request types
+export interface CheckSentenceRequest {
+  sentence: string;
+}
+
+export interface SaveSentenceRequest {
+  sentence: string;
+  analysis: AnalysisResult;
+}
+
+export interface SaveToLibraryRequest {
+  sentence: string;
+}
+
+export interface SaveChunkRequest {
+  expression: string;
+  meaning: string;
+  examples: string[];
+}
+
+// Response types
+export type AnalysisResponse = AnalysisResult;
+
+export interface ErrorResponse {
+  error: string;
+}
+
+export interface SuccessResponse {
+  success: boolean;
+  message?: string;
+}
+
+export interface HistoryEntry {
+  id: number;
+  text: string;
+  created_at: string;
+}
