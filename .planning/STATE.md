@@ -3,14 +3,14 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: planning
-stopped_at: Completed 02-backend-separation-02-PLAN.md
-last_updated: "2026-03-10T06:13:04.228Z"
+stopped_at: Completed 03-frontend-core-refactor-01-PLAN.md
+last_updated: "2026-03-10T06:36:11.898Z"
 last_activity: 2026-03-10 — Roadmap created
 progress:
   total_phases: 4
   completed_phases: 2
-  total_plans: 4
-  completed_plans: 4
+  total_plans: 6
+  completed_plans: 5
   percent: 0
 ---
 
@@ -54,6 +54,7 @@ Progress: [░░░░░░░░░░] 0%
 | Phase 01-foundation P02 | 525637 | 1 tasks | 3 files |
 | Phase 02-backend-separation P01 | 8 | 2 tasks | 8 files |
 | Phase 02-backend-separation P02 | 8 | 2 tasks | 7 files |
+| Phase 03-frontend-core-refactor P01 | 2 | 2 tasks | 7 files |
 
 ## Accumulated Context
 
@@ -77,6 +78,9 @@ Recent decisions affecting current work:
 - [Phase 02-backend-separation]: Zod v4 ZodError uses .issues not .errors — fixed during controller creation
 - [Phase 02-backend-separation]: z.record() in Zod v4 requires two args: z.record(z.string(), z.unknown())
 - [Phase 02-backend-separation]: Three-layer separation complete: routes/controllers/services with no business logic in route handlers
+- [Phase 03-frontend-core-refactor]: analysisQueryOptions uses staleTime: Infinity — analysis results are immutable once saved to DB
+- [Phase 03-frontend-core-refactor]: QueryClientProvider wraps BrowserRouter with defaultOptions staleTime=5min, retry=1
+- [Phase 03-frontend-core-refactor]: api object in src/lib/api.ts: thin typed wrappers with no caching logic, just fetch+error handling
 
 ### Pending Todos
 
@@ -90,6 +94,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-03-10T06:08:24.401Z
-Stopped at: Completed 02-backend-separation-02-PLAN.md
+Last session: 2026-03-10T06:36:11.897Z
+Stopped at: Completed 03-frontend-core-refactor-01-PLAN.md
 Resume file: None

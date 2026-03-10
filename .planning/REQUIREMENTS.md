@@ -18,11 +18,11 @@ Requirements for the refactor release. Each maps to roadmap phases.
 ### Frontend Architecture
 
 - [ ] **FEND-01**: Analysis.tsx decomposed into 6 step components (skeleton, modifiers, tree, meaning, chunks, quiz)
-- [ ] **FEND-02**: All server data fetching uses TanStack Query (no manual useEffect+fetch patterns)
+- [x] **FEND-02**: All server data fetching uses TanStack Query (no manual useEffect+fetch patterns)
 - [ ] **FEND-03**: Error states shown in UI components (no alert() calls anywhere)
-- [ ] **FEND-04**: Custom hooks encapsulate shared logic (data fetching, form handling)
+- [x] **FEND-04**: Custom hooks encapsulate shared logic (data fetching, form handling)
 - [ ] **FEND-05**: Loading states differentiate cache check vs AI generation
-- [ ] **FEND-06**: Query mutations properly invalidate related caches after saves
+- [x] **FEND-06**: Query mutations properly invalidate related caches after saves
 
 ### Backend Architecture
 
@@ -95,11 +95,11 @@ Which phases cover which requirements. Updated during roadmap creation.
 | BEND-03 | Phase 2 | Complete |
 | BEND-04 | Phase 2 | Complete |
 | FEND-01 | Phase 3 | Pending |
-| FEND-02 | Phase 3 | Pending |
+| FEND-02 | Phase 3 | Complete |
 | FEND-03 | Phase 3 | Pending |
-| FEND-04 | Phase 3 | Pending |
+| FEND-04 | Phase 3 | Complete |
 | FEND-05 | Phase 3 | Pending |
-| FEND-06 | Phase 3 | Pending |
+| FEND-06 | Phase 3 | Complete |
 | UX-01 | Phase 3 | Pending |
 | UX-02 | Phase 4 | Pending |
 | UX-03 | Phase 4 | Pending |

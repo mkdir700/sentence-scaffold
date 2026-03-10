@@ -59,7 +59,7 @@ Plans:
   3. When a save or fetch fails, an inline error message appears in the UI — no `alert()` dialog fires anywhere in the app
   4. The loading indicator distinguishes between a cache-hit (fast, no spinner) and a new AI generation (shows "Generating..." state)
   5. Analysis.tsx contains no inline step rendering — each of the 6 steps is a standalone component in `src/components/analysis/`
-**Plans:** 2 plans
+**Plans:** 1/2 plans executed
 
 Plans:
 - [ ] 03-01-PLAN.md — Install TanStack Query, patch backend to return IDs, create typed API client and query/mutation hooks
@@ -89,5 +89,5 @@ Phases execute in numeric order: 1 → 2 → 3 → 4
 |-------|----------------|--------|-----------|
 | 1. Foundation | 2/2 | Complete   | 2026-03-10 |
 | 2. Backend Separation | 2/2 | Complete   | 2026-03-10 |
-| 3. Frontend Core Refactor | 0/2 | Not started | - |
+| 3. Frontend Core Refactor | 1/2 | In Progress|  |
 | 4. Polish and Test Coverage | 0/2 | Not started | - |
