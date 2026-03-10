@@ -93,10 +93,27 @@ Plans:
 Plans:
 - [ ] 05-01-PLAN.md — Update ai.ts prompt and schema descriptions for bilingual output, update test fixture
 
+### Phase 6: Replace Quiz with Scenario-Based Output Practice
+**Goal**: Step 6 quiz is replaced with a scenario-based translation practice; users translate Chinese sentences into English using learned chunks, then receive real-time AI feedback
+**Depends on**: Phase 5
+**Requirements**: PRAC-01, PRAC-02, PRAC-03, PRAC-04, PRAC-05
+**Success Criteria** (what must be TRUE):
+  1. AnalysisResult has a `practice` field (no `quiz`) with scenario + 2-3 translation tasks
+  2. POST /api/feedback returns AI commentary comparing user translation with reference
+  3. StepPractice component renders scenario, sequential task cards with submit-then-reveal flow
+  4. Reference translations are hidden until after user submits
+  5. All existing tests pass with updated practice fixtures
+**Plans:** 3 plans
+
+Plans:
+- [ ] 06-01-PLAN.md — Replace quiz with practice in Zod schema, GenAI schema, AI prompt, and test fixtures
+- [ ] 06-02-PLAN.md — Create feedback API endpoint (service, controller, route) with Gemini integration
+- [ ] 06-03-PLAN.md — Build StepPractice component, wire feedback mutation, replace StepQuiz in Analysis.tsx
+
 ## Progress
 
 **Execution Order:**
-Phases execute in numeric order: 1 → 2 → 3 → 4 → 5
+Phases execute in numeric order: 1 → 2 → 3 → 4 → 5 → 6
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
@@ -105,3 +122,4 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 → 5
 | 3. Frontend Core Refactor | 2/2 | Complete   | 2026-03-10 |
 | 4. Polish and Test Coverage | 0/2 | Not started | - |
 | 5. Localize AI Content | 1/1 | Complete    | 2026-03-10 |
+| 6. Output Practice | 0/3 | Not started | - |

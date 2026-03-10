@@ -52,6 +52,14 @@ Requirements for the refactor release. Each maps to roadmap phases.
 - [x] **L10N-02**: All English source material fields (sentence, text spans, skeleton, expressions, examples) remain in English
 - [x] **L10N-03**: systemInstruction and per-field schema descriptions enforce bilingual output contract
 
+### Output Practice
+
+- [ ] **PRAC-01**: Quiz schema replaced with practice schema (Zod + GenAI) containing scenario + translation tasks
+- [ ] **PRAC-02**: AI generates 1 scenario per analysis with 2-3 Chinese-to-English translation tasks tied to analyzed chunks
+- [ ] **PRAC-03**: POST /api/feedback endpoint returns AI commentary comparing user translation with reference
+- [ ] **PRAC-04**: StepPractice component with sequential submit-then-reveal flow (reference hidden until submission)
+- [ ] **PRAC-05**: SQLite analysis cache cleared to remove incompatible quiz-format data
+
 ## v2 Requirements
 
 Deferred to future release. Tracked but not in current roadmap.
@@ -117,12 +125,17 @@ Which phases cover which requirements. Updated during roadmap creation.
 | L10N-01 | Phase 5 | Complete |
 | L10N-02 | Phase 5 | Complete |
 | L10N-03 | Phase 5 | Complete |
+| PRAC-01 | Phase 6 | Pending |
+| PRAC-02 | Phase 6 | Pending |
+| PRAC-03 | Phase 6 | Pending |
+| PRAC-04 | Phase 6 | Pending |
+| PRAC-05 | Phase 6 | Pending |
 
 **Coverage:**
-- v1 requirements: 27 total
-- Mapped to phases: 27
+- v1 requirements: 32 total
+- Mapped to phases: 32
 - Unmapped: 0
 
 ---
 *Requirements defined: 2026-03-10*
-*Last updated: 2026-03-10 after Phase 5 planning*
+*Last updated: 2026-03-10 after Phase 6 planning*
