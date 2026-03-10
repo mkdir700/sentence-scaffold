@@ -3,14 +3,14 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: planning
-stopped_at: Completed 01-foundation-02-PLAN.md
-last_updated: "2026-03-10T05:31:39.629Z"
+stopped_at: Completed 02-backend-separation-01-PLAN.md
+last_updated: "2026-03-10T06:02:53.168Z"
 last_activity: 2026-03-10 — Roadmap created
 progress:
   total_phases: 4
   completed_phases: 1
-  total_plans: 2
-  completed_plans: 2
+  total_plans: 4
+  completed_plans: 3
   percent: 0
 ---
 
@@ -52,6 +52,7 @@ Progress: [░░░░░░░░░░] 0%
 *Updated after each plan completion*
 | Phase 01-foundation P01 | 3 | 2 tasks | 9 files |
 | Phase 01-foundation P02 | 525637 | 1 tasks | 3 files |
+| Phase 02-backend-separation P01 | 8 | 2 tasks | 8 files |
 
 ## Accumulated Context
 
@@ -70,6 +71,8 @@ Recent decisions affecting current work:
 - [Phase 01-foundation]: TEST_DB env var set in vitest.config.ts test.env to ensure :memory: is active before module evaluation
 - [Phase 01-foundation]: Strict mode was already clean before tsconfig change — Plan 01 types covered all strict-mode concerns, no @ts-expect-error needed
 - [Phase 01-foundation]: Zod used only at external Gemini API boundary; DB queries use minimal typed casts (SentenceRow | undefined) — DB is trusted internal source
+- [Phase 02-backend-separation]: saveToLibrary returns { success: false } for unknown sentence (matches server.ts 404 behavior but as typed value)
+- [Phase 02-backend-separation]: Service layer uses pure functions with no Express dependency — BEND-04 proven by unit tests with in-memory SQLite
 
 ### Pending Todos
 
@@ -83,6 +86,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-03-10T05:27:15.432Z
-Stopped at: Completed 01-foundation-02-PLAN.md
+Last session: 2026-03-10T06:02:53.166Z
+Stopped at: Completed 02-backend-separation-01-PLAN.md
 Resume file: None

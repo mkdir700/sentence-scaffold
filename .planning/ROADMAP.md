@@ -43,7 +43,7 @@ Plans:
   2. `GET /api/analysis/:id` returns a cached analysis by ID with correct typed response
   3. Sending a POST with a missing or too-short sentence body returns a 400 response with a descriptive error message
   4. Service functions can be called directly in a test (no HTTP server required) and return correct results
-**Plans:** 2 plans
+**Plans:** 1/2 plans executed
 
 Plans:
 - [ ] 02-01-PLAN.md — Create API contract types, service layer with unit tests
@@ -88,6 +88,6 @@ Phases execute in numeric order: 1 → 2 → 3 → 4
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
 | 1. Foundation | 2/2 | Complete   | 2026-03-10 |
-| 2. Backend Separation | 0/2 | Not started | - |
+| 2. Backend Separation | 1/2 | In Progress|  |
 | 3. Frontend Core Refactor | 0/2 | Not started | - |
 | 4. Polish and Test Coverage | 0/2 | Not started | - |
